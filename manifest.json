@@ -1,0 +1,12 @@
+{
+	"name": "CCC",
+	"version_number": "0.1.1",
+	"website_url": "https://github.com/JaydenB/CCC",
+	"description": "Adds New Cards to ROUNDS designed by the Couches' Collective.",
+	"dependencies": [
+		"willis81808-UnboundLib-2.10.0",
+		"Pykess-ModdingUtils-0.2.5",
+		"BepInEx-BepInExPack_ROUNDS-5.4.1100",
+		"Pykess-CardChoiceSpawnUniqueCardPatch-0.1.7"
+	]
+}

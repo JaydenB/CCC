@@ -30,11 +30,7 @@ namespace CCC.Cards
             healthEffect.blockModifier.cdMultiplier_mult = 0.75f;
 
             // Check or Add the BlockBlockEffect Class as a Component to the player
-            DoofEffect doofEffect = player.gameObject.GetComponent<DoofEffect>();
-            if (doofEffect == null)
-            {
-                doofEffect = player.gameObject.AddComponent<DoofEffect>();
-            }
+            Doof_Mono doofEffect = player.gameObject.GetOrAddComponent<Doof_Mono>();
         }
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -88,7 +84,7 @@ namespace CCC.Cards
     }
 
     [HarmonyPatch]
-    public class DoofEffect : MonoBehaviour
+    public class Doof_Mono : MonoBehaviour
     {
         private Player player;
 
@@ -106,21 +102,15 @@ namespace CCC.Cards
 
         void StartEffect()
         {
-            UnityEngine.Debug.Log($"[{CCC.ModInitials}][Card] DoofEffect StartEffect().");
-
             List<Player> otherPlayers = PlayerManager.instance.players.Where(player => (player.playerID != this.player.playerID)).ToList();
             Vector2 displacement;
             foreach (Player otherPlayer in otherPlayers)
             {
                 displacement = (otherPlayer.transform.position - this.player.transform.position);
-                UnityEngine.Debug.Log($"[{CCC.ModInitials}][Card] DoofEffect - Distance [{otherPlayer.playerID}] {displacement.magnitude}");
-
-                if (displacement.magnitude < maxDistance)
+                if ((displacement.magnitude < maxDistance) && PlayerManager.instance.CanSeePlayer(this.player.transform.position, otherPlayer).canSee)
                 {
                     Vector2 pushback = (1.0f - (displacement.magnitude / maxDistance)) * displacement.normalized * pushbackMultiplier;
-                    UnityEngine.Debug.Log($"[{CCC.ModInitials}][Card] DoofEffect - Pushing Back [{otherPlayer.playerID}]. Pushback: {pushback}");
 
-                    //otherPlayer.data.playerVel.AddForce(displacement);
                     otherPlayer.data.movement.Move(pushback);
                 }
             }
@@ -131,7 +121,7 @@ namespace CCC.Cards
         [HarmonyPostfix]
         static void Block_PostFix(Block __instance, bool firstBlock, bool dontSetCD, BlockTrigger.BlockTriggerType triggerType, Vector3 useBlockPos, bool onlyBlockEffects)
         {
-            var doofEffect = __instance.GetComponent<DoofEffect>();
+            var doofEffect = __instance.GetComponent<Doof_Mono>();
             if ((doofEffect == null) || (triggerType != BlockTrigger.BlockTriggerType.Default)) return;
             doofEffect.StartEffect();
         }
@@ -140,7 +130,7 @@ namespace CCC.Cards
         [HarmonyPostfix]
         static void ResetStats_PostFix(Block __instance)
         {
-            var doofEffect = __instance.GetComponent<DoofEffect>();
+            var doofEffect = __instance.GetComponent<Doof_Mono>();
             if (doofEffect != null)
             {
                 Destroy(doofEffect);

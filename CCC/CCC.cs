@@ -36,7 +36,7 @@ namespace CCC
 
         IEnumerator ResetEffects(IGameModeHandler gm)
         {
-            DestroyAll<DoofEffect>();
+            DestroyAll<Doof_Mono>();
             yield break;
         }
 

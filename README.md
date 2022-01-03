@@ -2,8 +2,8 @@
 -------------------------------
 A BepInEx compatible mod introducing Custom Cards for ROUNDS designed by the Couches' Collective.
 
-### Version Notes
-
+## Version Notes
+---------------
 #### v0.1.1
 -----------
 - Updated 'Doof' Card Description and stats to make more sense for a public release.

@@ -40,7 +40,7 @@ namespace CCC.Cards
 
         protected override string GetDescription()
         {
-            return "Blocking jumps you in the air, and kill with style!";
+            return "Blocking jumps you in the air, so kill with style!";
         }
 
         protected override GameObject GetCardArt()

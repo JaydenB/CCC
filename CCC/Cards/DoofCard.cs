@@ -66,7 +66,7 @@ namespace CCC.Cards
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "Block Cooldown",
                     amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotLower
@@ -83,24 +83,26 @@ namespace CCC.Cards
         }
     }
 
-    [HarmonyPatch]
+    [DisallowMultipleComponent]
     public class Doof_Mono : MonoBehaviour
     {
+        private CharacterData data;
         private Player player;
+        private Block block;
 
         private readonly float pushbackMultiplier = 150.0f;
         private readonly float maxDistance = 20.0f;
 
-        void Awake()
+        private void Start()
         {
-            this.player = GetComponent<Player>();
+            this.data = base.GetComponentInParent<CharacterData>();
+            this.player = this.data.player;
+            this.block = this.data.block;
+
+            block.BlockAction += OnBlock;
         }
 
-        void Start()
-        {
-        }
-
-        void StartEffect()
+        private void OnBlock(BlockTrigger.BlockTriggerType type)
         {
             List<Player> otherPlayers = PlayerManager.instance.players.Where(player => (player.playerID != this.player.playerID)).ToList();
             Vector2 displacement;
@@ -114,27 +116,16 @@ namespace CCC.Cards
                     otherPlayer.data.movement.Move(pushback);
                 }
             }
-
         }
 
-        [HarmonyPatch(typeof(Block), "RPCA_DoBlock")]
-        [HarmonyPostfix]
-        static void Block_PostFix(Block __instance, bool firstBlock, bool dontSetCD, BlockTrigger.BlockTriggerType triggerType, Vector3 useBlockPos, bool onlyBlockEffects)
+        private void OnDestroy()
         {
-            var doofEffect = __instance.GetComponent<Doof_Mono>();
-            if ((doofEffect == null) || (triggerType != BlockTrigger.BlockTriggerType.Default)) return;
-            doofEffect.StartEffect();
+            this.block.BlockAction -= OnBlock;
         }
 
-        [HarmonyPatch(typeof(Block), "ResetStats")]
-        [HarmonyPostfix]
-        static void ResetStats_PostFix(Block __instance)
+        public void Destroy()
         {
-            var doofEffect = __instance.GetComponent<Doof_Mono>();
-            if (doofEffect != null)
-            {
-                Destroy(doofEffect);
-            }
+            UnityEngine.Object.Destroy(this);
         }
     }
 }

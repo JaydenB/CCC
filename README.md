@@ -4,6 +4,11 @@ A BepInEx compatible mod introducing Custom Cards for ROUNDS designed by the Cou
 
 ## Version Notes
 ---------------
+#### v0.2.2
+-----------
+- Updated OnBlock function names across WatchThis and Doof for better readability cross-file
+- Added new 'Invisibility Block' Card
+
 #### v0.2.1
 -----------
 - Updatated ReadMe to include v0.2.0 updates
@@ -55,4 +60,11 @@ Other player's bullets try to avoid you.
 ***Rare***
 
 Other player's bullets try to aim for you.
+
+---
+
+### Invisibility Block
+***Rare***
+
+Blocking makes you partially invisible for 4 seconds.
 

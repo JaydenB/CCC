@@ -99,10 +99,10 @@ namespace CCC.Cards
             this.player = this.data.player;
             this.block = this.data.block;
 
-            block.BlockAction += OnBlock;
+            block.BlockAction += OnBlockDoof;
         }
 
-        private void OnBlock(BlockTrigger.BlockTriggerType type)
+        private void OnBlockDoof(BlockTrigger.BlockTriggerType type)
         {
             List<Player> otherPlayers = PlayerManager.instance.players.Where(player => (player.playerID != this.player.playerID)).ToList();
             Vector2 displacement;
@@ -120,7 +120,7 @@ namespace CCC.Cards
 
         private void OnDestroy()
         {
-            this.block.BlockAction -= OnBlock;
+            this.block.BlockAction -= OnBlockDoof;
         }
 
         public void Destroy()

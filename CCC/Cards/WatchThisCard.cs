@@ -104,7 +104,7 @@ namespace CCC.Cards
 
         private bool isActive = false;
 
-        private readonly float gravityMult = 0.15f;
+        private readonly float gravityMult = 0.10f;
         private readonly float damageMult = 1.5f;
         private readonly float knockbackMult = 2.5f;
 
@@ -118,7 +118,7 @@ namespace CCC.Cards
             this.block = this.data.block;
             this.gravity = base.GetComponentInParent<Gravity>();
 
-            block.BlockAction += OnBlock;
+            block.BlockAction += OnBlockWatchThis;
 
             this.isActive = false;
         }
@@ -129,7 +129,7 @@ namespace CCC.Cards
             if (this.data.isGrounded) ResetWatchThis();
         }
 
-        private void OnBlock(BlockTrigger.BlockTriggerType type)
+        private void OnBlockWatchThis(BlockTrigger.BlockTriggerType type)
         {
             if (this.isActive) return;
 
@@ -153,7 +153,7 @@ namespace CCC.Cards
 
         private void OnDestroy()
         {
-            this.block.BlockAction -= OnBlock;
+            this.block.BlockAction -= OnBlockWatchThis;
         }
 
         public void Destroy()

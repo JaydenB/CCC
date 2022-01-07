@@ -23,7 +23,7 @@ namespace CCC
     {
         private const string ModId = "jaydenb.rounds.plugins.couchescustomcards";
         private const string ModName = "Couches' Custom Cards (CCC)";
-        public const string Version = "0.2.2";
+        public const string Version = "0.3.0";
         public const string ModInitials = "CCC";
 
         void Awake()
@@ -37,6 +37,7 @@ namespace CCC
         IEnumerator ResetEffects(IGameModeHandler gm)
         {
             DestroyAll<Doof_Mono>();
+            DestroyAll<Boof_Mono>();
             DestroyAll<BMagnet_Mono>();
             DestroyAll<BMagnetBullet_Mono>();
             DestroyAll<BRepeller_Mono>();
@@ -63,10 +64,12 @@ namespace CCC
 
             // Build All Cards
             CustomCard.BuildCard<DoofCard>();
+            CustomCard.BuildCard<BoofCard>();
             CustomCard.BuildCard<BulletRepellentCard>();
             CustomCard.BuildCard<BulletMagnetCard>();
             CustomCard.BuildCard<WatchThisCard>();
             CustomCard.BuildCard<InvisibleBlockCard>();
+            CustomCard.BuildCard<FlipperCard>();
         }
     }
 }

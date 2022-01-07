@@ -4,6 +4,11 @@ A BepInEx compatible mod introducing Custom Cards for ROUNDS designed by the Cou
 
 ## Version Notes
 ---------------
+#### v0.3.0
+-----------
+- Added new "Flipper" Card
+- Added new "Boof" Card
+
 #### v0.2.2
 -----------
 - Updated OnBlock function names across WatchThis and Doof for better readability cross-file
@@ -68,3 +73,16 @@ Other player's bullets try to aim for you.
 
 Blocking makes you partially invisible for 4 seconds.
 
+---
+
+### Flipper
+***Uncommon***
+
+Flips a handful of key stats around their default value.
+
+---
+
+### Boof
+***Uncommon***
+
+Colliding with other players knock them away from you.

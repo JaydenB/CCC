@@ -4,6 +4,12 @@ A BepInEx compatible mod introducing Custom Cards for ROUNDS designed by the Cou
 
 ## Version Notes
 ---------------
+#### v0.3.1
+-----------
+- Added new "Catapult" Card
+- Added new "Fire Shield" Card
+- Added new "Feather Fall" Card
+
 #### v0.3.0
 -----------
 - Added new "Flipper" Card
@@ -86,3 +92,24 @@ Flips a handful of key stats around their default value.
 ***Uncommon***
 
 Colliding with other players knock them away from you.
+
+---
+
+### Catapult
+***Common***
+
+Launch your enemies (or enemy boxes) away! Increased Knockback but reduced projectile speed.
+
+---
+
+### Fire Shield
+***Common***
+
+Blocking Ignites Players in a small radius around you.
+
+---
+
+### Feather Fall
+***Common***
+
+Blocking makes you fall like a feather, until you land on solid ground.

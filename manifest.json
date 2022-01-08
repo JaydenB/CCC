@@ -1,6 +1,6 @@
 {
 	"name": "CCC",
-	"version_number": "0.3.0",
+	"version_number": "0.3.1",
 	"website_url": "https://github.com/JaydenB/CCC",
 	"description": "Adds New Cards to ROUNDS designed by the Couches' Collective.",
 	"dependencies": [

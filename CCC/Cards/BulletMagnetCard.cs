@@ -50,6 +50,8 @@ namespace CCC.Cards
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            BMagnet_Mono bulletMagnetMono = player.gameObject.GetComponent<BMagnet_Mono>();
+            if (bulletMagnetMono != null) { Destroy(bulletMagnetMono); }
         }
 
         protected override string GetTitle()

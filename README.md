@@ -4,6 +4,14 @@ A BepInEx compatible mod introducing Custom Cards for ROUNDS designed by the Cou
 
 ## Version Notes
 ---------------
+#### v0.4.0
+-----------
+- Added new "One For All" Card
+- Added new "Place Rewind" Card
+- Added new "Bulk Up!" Card
+Bug Fixes:
+	- Remove Card fixes for "Bullet Magnet" and "Bullet Repellent"
+
 #### v0.3.1
 -----------
 - Added new "Catapult" Card
@@ -113,3 +121,25 @@ Blocking Ignites Players in a small radius around you.
 ***Common***
 
 Blocking makes you fall like a feather, until you land on solid ground.
+
+---
+
+### One For All
+***Rare***
+
+Harness the power of 'One for all' to smash your enemies.
+Pushback nearby players and physics object upon firing, increased knockback.
+
+---
+
+### Place Rewind
+***Uncommon***
+
+Place a rewind point by blocking, which you can go back to once by blocking again.
+
+---
+
+### Bulk Up!
+***Uncommon***
+
+Grow when you take damage! More health, slower speed.

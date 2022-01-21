@@ -50,6 +50,8 @@ namespace CCC.Cards
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            BRepeller_Mono bulletRepellerMono = player.gameObject.GetComponent<BRepeller_Mono>();
+            if (bulletRepellerMono != null) { Destroy(bulletRepellerMono); }
         }
 
         protected override string GetTitle()

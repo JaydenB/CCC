@@ -23,7 +23,7 @@ namespace CCC
     {
         private const string ModId = "jaydenb.rounds.plugins.couchescustomcards";
         private const string ModName = "Couches' Custom Cards (CCC)";
-        public const string Version = "0.3.1";
+        public const string Version = "0.4.0";
         public const string ModInitials = "CCC";
 
         void Awake()
@@ -31,10 +31,10 @@ namespace CCC
             new Harmony(ModId).PatchAll();
 
             // Clean up Custom Effect Components from Player GameObjects when Game Ends
-            GameModeManager.AddHook(GameModeHooks.HookGameEnd, ResetEffects);
+            GameModeManager.AddHook(GameModeHooks.HookGameEnd, ProcessGameEnd);
         }
 
-        IEnumerator ResetEffects(IGameModeHandler gm)
+        IEnumerator ProcessGameEnd(IGameModeHandler gm)
         {
             DestroyAll<Doof_Mono>();
             DestroyAll<Boof_Mono>();
@@ -48,6 +48,9 @@ namespace CCC
             DestroyAll<FeatherFall_Mono>();
             DestroyAll<FireShield_Mono>();
             DestroyAll<FireShield_Effect>();
+            DestroyAll<OneForAll_Mono>();
+            DestroyAll<PlaceRewind_Mono>();
+            DestroyAll<BulkUp_Mono>();
             yield break;
         }
 
@@ -76,6 +79,15 @@ namespace CCC
             CustomCard.BuildCard<CatapultCard>();
             CustomCard.BuildCard<FeatherFallCard>();
             CustomCard.BuildCard<FireShieldCard>();
+            CustomCard.BuildCard<OneForAllCard>();
+            CustomCard.BuildCard<PlaceRewindCard>();
+            CustomCard.BuildCard<BulkUpCard>();
+
+            GameModeManager.AddHook(GameModeHooks.HookBattleStart, (gm) => PlaceRewindCard.ResetAllRewinds());
+            GameModeManager.AddHook(GameModeHooks.HookPointEnd, (gm) => PlaceRewindCard.ResetAllRewinds());
+
+            GameModeManager.AddHook(GameModeHooks.HookBattleStart, (gm) => BulkUpCard.ResetAllBulkUp());
+            GameModeManager.AddHook(GameModeHooks.HookPointEnd, (gm) => BulkUpCard.ResetAllBulkUp());
         }
     }
 }

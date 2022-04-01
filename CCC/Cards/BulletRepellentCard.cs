@@ -182,7 +182,7 @@ namespace CCC.Cards
 
                 Vector3 a = closestPlayer.transform.position + base.transform.right * this.move.selectedSpread * Vector3.Distance(base.transform.position, closestPlayer.transform.position) * this.spread;
                 float num = Vector3.Angle(base.transform.root.forward, a - base.transform.position);
-                float dist = Vector3.Distance(base.transform.position, closestPlayer.transform.position)
+                float dist = Vector3.Distance(base.transform.position, closestPlayer.transform.position);
 
                 if ((dist < effectDistance) && (dist > minEffectDistance))
                 {

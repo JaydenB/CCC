@@ -130,7 +130,8 @@ namespace CCC.Cards
         private PhotonView view;
 
         private readonly float effectDistance = 10f;
-        private readonly float repellMultiplier = 0.6667f;
+        private readonly float minEffectDistance = 0.5f;
+        private readonly float magnetMultiplier = 0.4f;
 
         public float amount = 1f;
         public float scalingDrag = 1f;
@@ -181,12 +182,13 @@ namespace CCC.Cards
 
                 Vector3 a = closestPlayer.transform.position + base.transform.right * this.move.selectedSpread * Vector3.Distance(base.transform.position, closestPlayer.transform.position) * this.spread;
                 float num = Vector3.Angle(base.transform.root.forward, a - base.transform.position);
-
-                if (Vector3.Distance(base.transform.position, closestPlayer.transform.position) < effectDistance)
+                float dist = Vector3.Distance(base.transform.position, closestPlayer.transform.position);
+                
+                if ((dist < effectDistance) && (dist > minEffectDistance))
                 {
                     this.move.velocity -= this.move.velocity * num * TimeHandler.deltaTime * this.scalingDrag * 1.2f;
                     this.move.velocity -= this.move.velocity * TimeHandler.deltaTime * this.drag * 1.2f;
-                    this.move.velocity += Vector3.ClampMagnitude(a - base.transform.position, 4f) * TimeHandler.deltaTime * this.move.localForce.magnitude * 2f * this.amount * this.repellMultiplier;
+                    this.move.velocity += Vector3.ClampMagnitude(a - base.transform.position, 4f) * TimeHandler.deltaTime * this.move.localForce.magnitude * 2f * this.amount * this.magnetMultiplier;
                     this.move.velocity.z = 0f;
                     this.move.velocity += Vector3.up * TimeHandler.deltaTime * this.move.gravity * this.move.multiplier * 2f;
                     if (!this.isOn)

@@ -130,7 +130,8 @@ namespace CCC.Cards
         private PhotonView view;
 
         private readonly float effectDistance = 10f;
-        private readonly float repellMultiplier = -0.6667f;
+        private readonly float minEffectDistance = 0.5f;
+        private readonly float repellMultiplier = -0.4f;
 
         public float amount = 1f;
         public float scalingDrag = 1f;
@@ -181,8 +182,9 @@ namespace CCC.Cards
 
                 Vector3 a = closestPlayer.transform.position + base.transform.right * this.move.selectedSpread * Vector3.Distance(base.transform.position, closestPlayer.transform.position) * this.spread;
                 float num = Vector3.Angle(base.transform.root.forward, a - base.transform.position);
+                float dist = Vector3.Distance(base.transform.position, closestPlayer.transform.position)
 
-                if (Vector3.Distance(base.transform.position, closestPlayer.transform.position) < effectDistance)
+                if ((dist < effectDistance) && (dist > minEffectDistance))
                 {
                     this.move.velocity -= this.move.velocity * num * TimeHandler.deltaTime * this.scalingDrag * 1.2f;
                     this.move.velocity -= this.move.velocity * TimeHandler.deltaTime * this.drag * 1.2f;

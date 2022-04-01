@@ -6,6 +6,8 @@ A BepInEx compatible mod introducing Custom Cards for ROUNDS designed by the Cou
 ---------------
 #### v0.4.1
 -----------
+- Added new "Ant" Card
+- Bullet modification fixes for Magnet and Repellent cards to reduce freezing of bullets in mid-air
 - Dependency mod updates (ModdingUtils and UnboundLib)
 
 #### v0.4.0
@@ -30,7 +32,7 @@ Bug Fixes:
 #### v0.2.2
 -----------
 - Updated OnBlock function names across WatchThis and Doof for better readability cross-file
-- Added new 'Invisibility Block' Card
+- Added new "Invisibility Block" Card
 
 #### v0.2.1
 -----------
@@ -45,7 +47,7 @@ Bug Fixes:
 
 #### v0.1.1
 -----------
-- Updated 'Doof' Card Description and stats to make more sense for a public release.
+- Updated "Doof" Card Description and stats to make more sense for a public release.
 
 #### v0.1.0
 -----------
@@ -146,3 +148,10 @@ Place a rewind point by blocking, which you can go back to once by blocking agai
 ***Uncommon***
 
 Grow when you take damage! More health, slower speed.
+
+---
+
+### Ant
+***Uncommon***
+
+Shrink down to run past your enemies' bullets!

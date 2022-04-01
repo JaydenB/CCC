@@ -36,18 +36,22 @@ namespace CCC.Cards
         {
             return "Boof";
         }
+
         protected override string GetDescription()
         {
             return "Colliding with other players knocks them back.";
         }
+
         protected override GameObject GetCardArt()
         {
             return null;
         }
+
         protected override CardInfo.Rarity GetRarity()
         {
             return CardInfo.Rarity.Uncommon;
         }
+
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]

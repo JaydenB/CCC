@@ -68,7 +68,7 @@ namespace CCC.Cards
         {
             return null;
         }
-        
+
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]

@@ -82,6 +82,7 @@ namespace CCC
             CustomCard.BuildCard<OneForAllCard>();
             CustomCard.BuildCard<PlaceRewindCard>();
             CustomCard.BuildCard<BulkUpCard>();
+            CustomCard.BuildCard<AntCard>();
 
             GameModeManager.AddHook(GameModeHooks.HookBattleStart, (gm) => PlaceRewindCard.ResetAllRewinds());
             GameModeManager.AddHook(GameModeHooks.HookPointEnd, (gm) => PlaceRewindCard.ResetAllRewinds());

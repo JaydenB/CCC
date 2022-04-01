@@ -23,7 +23,7 @@ namespace CCC
     {
         private const string ModId = "jaydenb.rounds.plugins.couchescustomcards";
         private const string ModName = "Couches' Custom Cards (CCC)";
-        public const string Version = "0.4.0";
+        public const string Version = "0.4.1";
         public const string ModInitials = "CCC";
 
         void Awake()

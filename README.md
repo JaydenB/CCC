@@ -4,6 +4,10 @@ A BepInEx compatible mod introducing Custom Cards for ROUNDS designed by the Cou
 
 ## Version Notes
 ---------------
+#### v0.4.1
+-----------
+- Dependency mod updates (ModdingUtils and UnboundLib)
+
 #### v0.4.0
 -----------
 - Added new "One For All" Card
@@ -50,7 +54,6 @@ Bug Fixes:
 ## Mod Overview
 ---------------
 This mod adds a number of cards to the game. Below they are listed in no particular order.
-(Currently only a single card during Pre-Alpha phase)
 
 ---
 

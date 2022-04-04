@@ -12,7 +12,7 @@ using HarmonyLib;
 
 namespace CCC.Cards
 {
-    class AntCard : CustomCard
+    class AntMan_CCC_Card : CustomCard
     {
 
         /*
@@ -45,7 +45,7 @@ namespace CCC.Cards
 
         protected override string GetTitle()
         {
-            return "Ant";
+            return "Ant-Man";
         }
 
         protected override string GetDescription()

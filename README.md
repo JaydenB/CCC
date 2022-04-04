@@ -4,6 +4,10 @@ A BepInEx compatible mod introducing Custom Cards for ROUNDS designed by the Cou
 
 ## Version Notes
 ---------------
+#### v0.4.2
+-----------
+- Updated "Ant" Card to "Ant-Man" Card to prevent issues with PCE
+
 #### v0.4.1
 -----------
 - Added new "Ant" Card

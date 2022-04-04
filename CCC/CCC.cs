@@ -23,7 +23,7 @@ namespace CCC
     {
         private const string ModId = "jaydenb.rounds.plugins.couchescustomcards";
         private const string ModName = "Couches' Custom Cards (CCC)";
-        public const string Version = "0.4.1";
+        public const string Version = "0.4.2";
         public const string ModInitials = "CCC";
 
         void Awake()
@@ -82,7 +82,7 @@ namespace CCC
             CustomCard.BuildCard<OneForAllCard>();
             CustomCard.BuildCard<PlaceRewindCard>();
             CustomCard.BuildCard<BulkUpCard>();
-            CustomCard.BuildCard<AntCard>();
+            CustomCard.BuildCard<AntMan_CCC_Card>();
 
             GameModeManager.AddHook(GameModeHooks.HookBattleStart, (gm) => PlaceRewindCard.ResetAllRewinds());
             GameModeManager.AddHook(GameModeHooks.HookPointEnd, (gm) => PlaceRewindCard.ResetAllRewinds());
